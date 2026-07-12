@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import {  Github, Folder } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Github, Folder, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -22,7 +21,7 @@ const projects = [
       "Render",
     ],
     github: "https://github.com/duagarima23/production-rag-assistant",
-    demo: "",
+    demo: "https://production-rag-assistant-um9e.onrender.com/",
     category: "Generative AI",
   },
   {
@@ -37,21 +36,15 @@ const projects = [
       "ReportLab",
     ],
     github: "https://github.com/duagarima23/CareerForge",
-    demo: "",
+    demo: "https://careerforge-iflsnsjoimmttuy5kinjbb.streamlit.app/",
     category: "Generative AI",
   },
   {
     title: "Hospital Emergency Room Analytics Dashboard",
     description:
       "Interactive Power BI dashboard analyzing over 9,000 patient records to uncover operational KPIs, patient demographics, referral patterns, and hospital performance using SQL and DAX.",
-    tech: [
-      "Power BI",
-      "SQL",
-      "DAX",
-      "Power Query",
-    ],
+    tech: ["Power BI", "SQL", "DAX", "Power Query"],
     github: "https://github.com/duagarima23/Hospital-ER-Dashboard",
-    demo: "",
     category: "Data Analytics",
   },
   {
@@ -65,8 +58,9 @@ const projects = [
       "Decision Tree",
       "Streamlit",
     ],
-    github: "https://github.com/duagarima23/Flipkart-reviews-sentiment-analysis",
-    demo: "",
+    github:
+      "https://github.com/duagarima23/Flipkart-reviews-sentiment-analysis",
+    
     category: "Machine Learning",
   },
   {
@@ -82,13 +76,17 @@ const projects = [
       "Matplotlib",
     ],
     github: "https://github.com/duagarima23/Stock_market_analysis",
-    demo: "",
+   
     category: "Deep Learning",
   },
 ];
+
 export function ProjectsSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px",
+  });
 
   return (
     <section id="projects" className="py-24 relative" ref={ref}>
@@ -102,6 +100,7 @@ export function ProjectsSection() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
+
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
         </motion.div>
 
@@ -111,26 +110,71 @@ export function ProjectsSection() {
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+              className={`group ${
+                index === projects.length - 1
+                  ? "md:col-span-2 flex justify-center"
+                  : ""
+              }`}
             >
-              <div className="h-full glass rounded-2xl p-6 hover:glow-cyan transition-all duration-300 flex flex-col">
+              <div
+                className={`glass rounded-2xl p-6 hover:glow-cyan transition-all duration-300 flex flex-col h-full ${
+                  index === projects.length - 1
+                    ? "w-full md:max-w-[48%]"
+                    : ""
+                }`}
+              >
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                     <Folder className="h-6 w-6" />
                   </div>
+
                   <div className="flex gap-2">
-                    <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    {project.demo && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="text-muted-foreground hover:text-primary"
+                        asChild
+                      >
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="h-5 w-5" />
+                        </a>
+                      </Button>
+                    )}
+
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-muted-foreground hover:text-primary"
+                      asChild
+                    >
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-5 w-5" />
                       </a>
                     </Button>
                   </div>
                 </div>
 
+                <span className="inline-block w-fit mb-3 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  {project.category}
+                </span>
+
                 <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
+
                 <p className="text-muted-foreground mb-6 flex-grow leading-relaxed">
                   {project.description}
                 </p>
@@ -151,5 +195,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
