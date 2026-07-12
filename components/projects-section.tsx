@@ -8,35 +8,84 @@ import { Button } from '@/components/ui/button'
 
 const projects = [
   {
-    title: 'CareerForge – AI Career Assistant',
-    description: 'AI-powered career assistant platform featuring resume critique, job fit scoring, skill matching, AI-generated reports, and interactive Streamlit UI.',
-    tech: ['Python', 'Streamlit', 'LangChain', 'ReportLab'],
-    github: 'https://github.com/duagarima23/CareerForge',
-    featured: true,
+    title: "DocMind AI – Enterprise Knowledge Assistant",
+    description:
+      "Production-ready RAG application that enables conversational Q&A over PDF, DOCX, and TXT documents using semantic retrieval, hybrid search, and Google Gemini. Features conversation memory, source citations, and multi-document querying.",
+    tech: [
+      "Python",
+      "Streamlit",
+      "LangChain",
+      "Gemini",
+      "ChromaDB",
+      "RAG",
+      "BM25",
+      "Render",
+    ],
+    github: "https://github.com/duagarima23/production-rag-assistant",
+    demo: "",
+    category: "Generative AI",
   },
   {
-    title: 'Hospital Emergency Room Analytics Dashboard',
-    description: 'Power BI dashboard analyzing 9,000+ patient records to identify operational and demographic trends using DAX and SQL analytics.',
-    tech: ['Power BI', 'SQL', 'DAX'],
-    github: 'https://github.com/duagarima23/Hospital-ER-Dashboard',
-    featured: true,
+    title: "CareerForge – AI Career Assistant",
+    description:
+      "AI-powered career assistant that analyzes resumes against job descriptions to generate ATS insights, skill gap analysis, fit scores, resume critique, cover letters, interview preparation, and downloadable PDF reports.",
+    tech: [
+      "Python",
+      "Streamlit",
+      "OpenAI SDK",
+      "PyPDF2",
+      "ReportLab",
+    ],
+    github: "https://github.com/duagarima23/CareerForge",
+    demo: "",
+    category: "Generative AI",
   },
   {
-    title: 'Sentiment Analysis on E-commerce Reviews',
-    description: 'End-to-end NLP pipeline using TF-IDF and machine learning for real-time sentiment prediction with Streamlit deployment.',
-    tech: ['Python', 'TF-IDF', 'Scikit-learn', 'Streamlit'],
-    github: 'https://github.com/duagarima23/Flipkart-reviews-sentiment-analysis',
-    featured: true,
+    title: "Hospital Emergency Room Analytics Dashboard",
+    description:
+      "Interactive Power BI dashboard analyzing over 9,000 patient records to uncover operational KPIs, patient demographics, referral patterns, and hospital performance using SQL and DAX.",
+    tech: [
+      "Power BI",
+      "SQL",
+      "DAX",
+      "Power Query",
+    ],
+    github: "https://github.com/duagarima23/Hospital-ER-Dashboard",
+    demo: "",
+    category: "Data Analytics",
   },
   {
-    title: 'Stock Market Forecasting using LSTM',
-    description: 'Deep learning time-series forecasting model using LSTM networks with interactive analytics visualization.',
-    tech: ['Python', 'TensorFlow', 'Keras'],
-    github: 'https://github.com/duagarima23/Stock_market_analysis',
-    featured: true,
+    title: "Sentiment Analysis on E-commerce Reviews",
+    description:
+      "Built an NLP pipeline using TF-IDF and Decision Tree classification to predict customer sentiment, deployed as an interactive Streamlit application for real-time inference.",
+    tech: [
+      "Python",
+      "Scikit-learn",
+      "TF-IDF",
+      "Decision Tree",
+      "Streamlit",
+    ],
+    github: "https://github.com/duagarima23/Flipkart-reviews-sentiment-analysis",
+    demo: "",
+    category: "Machine Learning",
   },
-]
-
+  {
+    title: "Stock Market Forecasting using LSTM",
+    description:
+      "Developed a deep learning model using LSTM networks to forecast stock prices from historical market data, with interactive visualization of trends and predictions.",
+    tech: [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "LSTM",
+      "Pandas",
+      "Matplotlib",
+    ],
+    github: "https://github.com/duagarima23/Stock_market_analysis",
+    demo: "",
+    category: "Deep Learning",
+  },
+];
 export function ProjectsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
